@@ -1,0 +1,1 @@
+The java code that parses the DDI is in the source file EditRulesWrapper.java from line 60 to line 87.

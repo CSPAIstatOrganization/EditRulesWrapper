@@ -1,0 +1,31 @@
+<jxb:bindings version="1.0"
+              xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+              xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <jxb:bindings schemaLocation="datacollection.xsd" node="/xs:schema">
+	
+		<!--
+             Normalmente per poter usare la libreria jaxb e necessario effettuare inizialmente l'operazione di binding.
+             Tale operazione a partire dai file xsd genera le classi java da importare nel progetto java.
+			 Il comando da usare da linea di comando dopo essere entrati nella cartella contenente gli xsd e
+				xjc nomeDelFile.xsd
+			 In questo caso eseguendo il comando "xjc instance.xsd" si verificano errori dovuti a nomi di proprietà duplicati
+			 Per ovviare al problema occorre creare un fiule come questo detto di binding in cui rinominare i nomi problematici
+			 Il comando da usare e
+				xjc -extension -b nomeDelFileDiBinding.xjb nomeDelFile.xsd
+             Nello specifico le classi sono state create con il comando
+			  	xjc -extension -b bindingCustomization.xjb instance.xsd
+				
+				
+			NB: la presenza di questo commento da problemi a causa di alcuni caratteri, se si vogliono generare nuovamente le classi
+				rimuoverlo momentaneamente, salvare il file e al termine della generazione reinserirlo
+		-->	
+	
+		<jxb:bindings node=".//xs:attribute[@name='isOverride']">
+            <jxb:property name="isOverrideAttribute"/>
+        </jxb:bindings>
+		
+
+   </jxb:bindings>
+</jxb:bindings>
+
